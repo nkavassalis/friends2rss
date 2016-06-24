@@ -14,8 +14,11 @@ To use this you'll need to create an app on Reddit. Go to https://www.reddit.com
 Before using the script, fill in the four variables at the top. Your app's client id and its secret from above, aswell as your reddit user and password. It makes an oAuth request on every run.
 
 `clientid = ""`
+
 `secret = ""`
+
 `reddituser = ""`
+
 `redditpass = ""`
 
 Happy (less) Redditing.
