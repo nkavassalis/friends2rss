@@ -5,7 +5,7 @@ This is a quick 30 minute hack of a script to generate an RSS feed from your red
 
 Requires Python 2.7 with the requests and json packages. Tested on Python 2.7.10 Amazon Linux and Python 2.7.11 OSX. YMMV
 
-I personally cron it on a webserver to run every 15 minutes */15 * * * * python /path/to/friends2rss.py > /some/web/path/myfriends.rss and point my reader to the live URL. You could also run it live via CGI.
+I personally cron it on a webserver to run every 15 minutes `*/15 * * * * python /path/to/friends2rss.py > /some/web/path/myfriends.rss` and point my reader to the live URL. You could also run it live via CGI.
 
 To use this you'll need to create an app on Reddit. Go to https://www.reddit.com/prefs/apps/ and create an app. Give it any name, chose "script" as type and enter http://127.0.0.1 as the redirect url (it's unused). See the below screenshot for an example (note this isn't a real application and its client id and secret will not work for you)
 
