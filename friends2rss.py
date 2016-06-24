@@ -28,7 +28,7 @@ authresponse = response.json()
 # output is in JSON, most recent 25 submissions
 auth = "%s %s" % (authresponse['token_type'], authresponse['access_token'])
 headers = {"Authorization": auth, "User-Agent": "friends2rss/1.0 by nkavassalis"}
-response = requests.get("https://oauth.reddit.com/%s/.json" % path, headers=headers)
+response = requests.get("https://oauth.reddit.com/r/friends/.json", headers=headers)
 friends = response.json()['data']['children']
 
 # lets create some lazy RSS
