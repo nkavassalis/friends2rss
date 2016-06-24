@@ -15,8 +15,11 @@ Before using the script, fill in the four variables at the top. Your app's clien
 
 `
 clientid = ""
+
 secret = ""
+
 reddituser = ""
+
 redditpass = ""
 `
 
