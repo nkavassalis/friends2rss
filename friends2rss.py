@@ -37,7 +37,7 @@ print "<channel>\n\t<title>%s's Reddit friends feed</title>\n\t<link>http://redd
 
 for post in friends:
   print "\t<item>"
-  print "\t\t<title>%s</title>" % post['data']['title']
+  print "\t\t<title>[%s] %s</title>" % (post['data']['author'], post['data']['title'])
   print "\t\t<category>%s</category>" % post['data']['subreddit']
   print "\t\t<author>%s@reddit (%s)</author>" % (post['data']['author'], post['data']['author'])
   print "\t\t<link>%s</link>" % post['data']['url']
@@ -45,11 +45,11 @@ for post in friends:
   permalink = "https://reddit.com%s" % post['data']['permalink']
 
   if not post['data']['selftext_html'] and post['data']['media']:
-    print "\t\t<description>&lt;a href='%s'&gt;&lt;img src='%s'&gt;&lt;/a&gt;&ltbr&gt;&lt;a href='%s'&gt;%s&lt;/a&gt;</description>" % (post['data']['url'], post['data']['media']['oembed']['thumbnail_url'], permalink, permalink)
+    print "\t\t<description><a href='%s'><img src='%s'></a><br><br><a href='%s'>%s</a></description>" % (post['data']['url'], post['data']['media']['oembed']['thumbnail_url'], permalink, permalink)
   elif not post['data']['selftext_html']:
-   print "\t\t<description>&lt;a href='%s'&gt;%s&lt;/a&gt;&ltbr&gt;&lt;a href='%s'&gt;%s&lt;/a&gt;</description>" % (post['data']['url'], post['data']['url'], permalink, permalink)
+   print "\t\t<description><a href='%s'>%s</a><br><br><a href='%s'>%s</a></description>" % (post['data']['url'], post['data']['url'], permalink, permalink)
   else:
-    print "\t\t<description>%s&ltbr&gt;&lt;a href='%s'&gt;%s&lt;/a&gt;</description>" % (post['data']['selftext_html'], permalink, permalink)
+    print "\t\t<description>%s<br><br><a href='%s'>%s</a></description>" % (post['data']['selftext_html'], permalink, permalink)
 
   print "\t\t<pubDate>%s</pubDate>" % datetime.datetime.fromtimestamp(int(post['data']['created_utc'])).strftime("%a, %d %b %Y %H:%M:%S +0000")
   print "\t</item>"
